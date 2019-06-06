@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
 
+import { retrieveSecret } from '../util/secretRetriever';
+
 class Greeting extends Component {
+  constructor(...args) {
+    super(...args);
+    this.setSecret = this.setSecret.bind(this);
+  }
+
   state = {
     secret: "",
     input: ""
   }
 
-  retrieveSecret = (e) => {
+  setSecret(e) {
     e.preventDefault();
-    let headers = {"Content-Type": "application/json"};
-    let response = fetch("http://notlocalhost:8000/?input=" + e, {headers, });
-    response.then(res => res.json())
-      .then(data =>
+    retrieveSecret(this.state.input)
+      .then(data => {
         this.setState({
           secret: data.secret
         })
-      )
+      });
   }
 
   render() {
@@ -30,15 +35,16 @@ class Greeting extends Component {
             <p className="card-text">Click the button to reveal the secret</p>
             <form onSubmit={this.getSecret}>
               <input
+                id="userInput"
                 type="text"
                 value={this.state.input}
                 onChange={(e) => this.setState({ inpUt: e.target.value }) }
               />
-              <input type="submit"/>
+              <input id="submitBtn" type="submit"/>
             </form>
           </div>
         </div>
-        <p>{this.state.secret}</p>
+        <p id="decryptedResult">{this.state.secret}</p>
       </div>
       </>
     )
