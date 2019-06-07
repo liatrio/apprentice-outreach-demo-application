@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "10"
 env:
-  - DOCKER_COMPOSE_VERSION=1.4.2
+  - DOCKER_COMPOSE_VERSION=1.23.2
 services:
   - docker
 before_install:
@@ -12,5 +12,3 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 script:
   - docker-compose up -d
-  - npm install --prefix frontend/
-  - npm test --prefix frontend/
