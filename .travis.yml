@@ -1,9 +1,8 @@
-env:
-	- DOCKER_COMPOSE_VERSION=1.4.2
-
 language: node_js
 node_js:
   - "10"
+env:
+	- DOCKER_COMPOSE_VERSION=1.4.2
 services:
   - docker
 before_install:
