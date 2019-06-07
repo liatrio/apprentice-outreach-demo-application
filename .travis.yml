@@ -1,3 +1,4 @@
 language: node_js
 script:
-  - npm test frontend/
+  - npm install --prefix frontend/
+  - npm test --prefix frontend/
