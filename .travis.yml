@@ -11,5 +11,5 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 script:
-  - docker-compose up -d
+  - docker-compose -e REACT_APP_DOMAIN=backend up -d
   - docker-compose exec frontend sh -c "npm test"

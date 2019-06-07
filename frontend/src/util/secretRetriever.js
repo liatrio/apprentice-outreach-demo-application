@@ -2,6 +2,7 @@ const fetch = require("node-fetch");
 
 export const retrieveSecret = (input) => {
   let headers = {"Content-Type": "application/json"};
-  return fetch("http://localhost:8000/?input=" + input, {headers, })
+  let domain = process.env.REACT_APP_DOMAIN;
+  return fetch("http://" + domain + ":8000/?input=" + input, {headers, })
     .then(res => res.status())
 }
