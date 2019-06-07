@@ -1,6 +1,10 @@
 language: node_js
 node_js:
   - "10"
+services:
+  - docker
 script:
+  - docker build -t backend backend/
+  - docker run -p 8000:8000 backend
   - npm install --prefix frontend/
   - npm test --prefix frontend/
