@@ -2,4 +2,5 @@ sudo: required
 services:
   - docker
 script:
+  - cd frontend
   - npm test
