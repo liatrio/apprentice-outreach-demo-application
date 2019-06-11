@@ -22,5 +22,5 @@ services:
       - ./frontend/__tests__:/usr/src/app/__tests__
       - ./frontend/src:/usr/src/app/src
     ports:
-      - "3000:3000"
+      - "3000:9999"
     command: npm start
