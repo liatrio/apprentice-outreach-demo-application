@@ -19,8 +19,8 @@ services:
     environment:
       - REACT_APP_DOMAIN
     volumes:
-      - ./frontend/__tests__:/usr/src/app/__tests__
-      - ./frontend/src:/usr/src/app/src
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
     ports:
-      - "3000:9999"
-    command: npm start
+      - "3000:3000"
+    command: ["yarn", "start"]
