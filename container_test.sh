@@ -7,7 +7,7 @@ if [ "$backendrun" = "false" ]; then
    exit 1 
 fi
 
-frontrun=$(docker inspect -f {{.State.Running}} backend-demo-app)
+frontrun=$(docker inspect -f {{.State.Running}} frontend-demo-app)
 if [ "$frontend" = "false" ]; then
    echo "frontend-demo-app down, Exiting..."
    exit 1 
